@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Problem Solving Tracker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Background -->
+
+    <div class="bg bg1"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+
+    <div class="container">
+
+        <!-- HEADER -->
+
+        <header>
+
+            <div class="logo">
+
+                🧠
+
+            </div>
+
+            <div class="title">
+
+                <h1>Problem Solving Tracker</h1>
+
+                <p>Không hỏi ngay - Tự giải quyết trước</p>
+
+            </div>
+
+            <div class="header-menu">
+
+                <button id="exportBtn">
+
+                    📤 Xuất CSV
+
+                </button>
+
+                <button id="resetAll">
+
+                    🔄 Làm lại
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- DASHBOARD -->
+
+        <main>
+
+            <!-- LEFT -->
+
+            <section class="left-column">
+
+                <!-- TIMER -->
+
+                <div class="card timer-card">
+
+                    <div class="card-title">
+
+                        ⏳ Đồng hồ thử thách
+
+                    </div>
+
+                    <div class="timer-area">
+
+                        <svg class="progress-ring" width="280" height="280">
+
+                            <circle
+                                class="ring-bg"
+                                cx="140"
+                                cy="140"
+                                r="115"
+                            />
+
+                            <circle
+                                id="progressCircle"
+                                class="ring-progress"
+                                cx="140"
+                                cy="140"
+                                r="115"
+                            />
+
+                        </svg>
+
+                        <div class="timer-text">
+
+                            <h2 id="timer">
+
+                                05:00
+
+                            </h2>
+
+                            <span id="timerStatus">
+
+                                Sẵn sàng
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="timer-buttons">
+
+                        <button id="startBtn">
+
+                            ▶ Bắt đầu
+
+                        </button>
+
+                        <button id="resetBtn">
+
+                            ↺ Đặt lại
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- HISTORY -->
+
+                <div class="card history-card">
+
+                    <div class="card-title">
+
+                        📋 Lịch sử thử thách
+
+                    </div>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Thời gian</th>
+
+                                <th>Kết quả</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="historyTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+                                <!-- ACTION PANEL -->
+
+                <div class="card action-card">
+
+                    <div class="toggle-item">
+
+                        <div>
+
+                            <h3>📚 Đã tìm ít nhất 1 nguồn</h3>
+
+                            <p>Google, sách, AI hoặc tài liệu học tập.</p>
+
+                        </div>
+
+                        <label class="switch">
+
+                            <input type="checkbox" id="sourceCheck">
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+                    <div class="toggle-item">
+
+                        <div>
+
+                            <h3>✍️ Đã thử ít nhất 1 cách giải</h3>
+
+                            <p>Hãy thử trước khi nhờ người khác giúp.</p>
+
+                        </div>
+
+                        <label class="switch">
+
+                            <input type="checkbox" id="solutionCheck">
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+                    <div class="action-buttons">
+
+                        <button class="success-btn" id="successBtn">
+
+                            🌟 Tự giải quyết!
+
+                        </button>
+
+                        <button class="help-btn" id="helpBtn">
+
+                            💬 Cần phải đi hỏi
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- RIGHT -->
+
+            <section class="right-column">
+
+                <!-- CHALLENGE -->
+
+                <div class="card challenge-card">
+
+                    <div class="card-title">
+
+                        💡 Thử thách: Không hỏi ngay
+
+                    </div>
+
+                    <div class="challenge-description">
+
+                        Trước khi hỏi người khác, hãy hoàn thành các bước sau.
+
+                    </div>
+
+                    <div class="step">
+
+                        <div class="step-icon">🧠</div>
+
+                        <div>
+
+                            <h3>Suy nghĩ trong 5 phút</h3>
+
+                            <p>Tự phân tích và tìm hướng giải quyết.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="step">
+
+                        <div class="step-icon">🔍</div>
+
+                        <div>
+
+                            <h3>Tìm ít nhất 1 nguồn đáng tin</h3>
+
+                            <p>Google, sách, ghi chú hoặc AI.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="step">
+
+                        <div class="step-icon">✍️</div>
+
+                        <div>
+
+                            <h3>Thử một cách giải</h3>
+
+                            <p>Không cần đúng ngay, hãy mạnh dạn thử.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="step">
+
+                        <div class="step-icon">🤝</div>
+
+                        <div>
+
+                            <h3>Nếu vẫn chưa được</h3>
+
+                            <p>Lúc này mới hỏi giáo viên hoặc bạn bè.</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- STATISTICS -->
+
+                <div class="card stats-card">
+
+                    <div class="card-title">
+
+                        📊 Thống kê
+
+                    </div>
+
+                    <div class="stats-grid">
+
+                        <div class="stat-box">
+
+                            <h2 id="totalChallenge">
+
+                                0
+
+                            </h2>
+
+                            <span>Tổng thử thách</span>
+
+                        </div>
+
+                        <div class="stat-box">
+
+                            <h2 id="successRate">
+
+                                0%
+
+                            </h2>
+
+                            <span>Tỷ lệ tự giải</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="progress-section">
+
+                        <div class="progress-top">
+
+                            <span>Tiến độ</span>
+
+                            <span id="progressPercent">
+
+                                0%
+
+                            </span>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill" id="progressFill"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mini-info">
+
+                        <div>
+
+                            🔥 Chuỗi thành công
+
+                            <strong id="streak">
+
+                                0
+
+                            </strong>
+
+                        </div>
+
+                        <div>
+
+                            ⏳ Tổng thời gian
+
+                            <strong id="studyTime">
+
+                                0 phút
+
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                    <div class="badge-card">
+
+                        <h3>🏅 Huy hiệu</h3>
+
+                        <div id="badge">
+
+                            🌱 Người mới bắt đầu
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <div class="popup" id="popup">
+
+        🎉 Chúc mừng!
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
